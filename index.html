@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UZH.ai — AI Demos</title>
-<meta name="description" content="Live demo apps built by UZH.ai, showing what AI can build for the university community in days, not months.">
+<meta name="description" content="Live AI demo apps from UZH.ai and from researchers in our network, showing what's possible for the university community — plus how to get in touch.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -165,6 +165,15 @@
     border-radius: 50%;
     background: var(--uzh-green);
     display: inline-block;
+  }
+
+  .demo-tag-network { color: var(--uzh-teal); }
+  .demo-tag-network::before { background: var(--uzh-teal); }
+
+  .demo-credit {
+    font-size: 13px;
+    color: var(--text-gray);
+    margin: 0 0 16px;
   }
 
   .demo-card h3 {
@@ -344,7 +353,7 @@
 <section class="hero">
   <div class="wrap">
     <h1>We turn ideas into working AI apps — fast.</h1>
-    <p>UZH.ai is the University of Zurich's initiative bringing AI into everyday university work. Everything below is a <strong>real, working app</strong> we built to show colleagues what's possible — often in days, not months. Click through and try them yourself.</p>
+    <p>UZH.ai is the University of Zurich's initiative bringing AI into everyday university work. Below are <strong>real, working apps</strong> — some we built ourselves to show colleagues what's possible in days, not months, others built by researchers and collaborators in our network. Click through and try them yourself.</p>
   </div>
 </section>
 
@@ -358,6 +367,14 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
       <span>This page is updated by hand as new UZH.ai demos ship — more prototypes are on the way.</span>
     </div>
+  </div>
+</section>
+
+<section class="demos">
+  <div class="wrap">
+    <p class="section-label" style="color: var(--uzh-teal);">From our network</p>
+    <h2 class="section-title">Built by people around us</h2>
+    <div class="demo-grid" id="network-grid"></div>
   </div>
 </section>
 
@@ -415,19 +432,37 @@
     }
   ];
 
-  const grid = document.getElementById('demo-grid');
-  grid.innerHTML = demos.map(d => `
+  // Tools built by researchers/collaborators in the UZH.ai network — not built by UZH.ai itself.
+  // Add new entries here the same way as the demos array above; include "credit" to name who built it.
+  const networkTools = [
+    {
+      tag: "From our network",
+      title: "PaperScope",
+      credit: "Built by a researcher in the UZH.ai network",
+      description: "A research workspace that turns literature discovery into a visual canvas — weekly curated paper digests, a citation network explorer, and a map of your reading that grows with every session.",
+      url: "https://thepaperscope.com/",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#0028A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8.2 7.2 10 15.5M15.8 7.2 14 15.5M8.3 6h7.4"/></svg>`
+    }
+  ];
+
+  function renderCards(list, showCredit) {
+    return list.map(d => `
     <div class="demo-card">
       <div class="demo-icon">${d.icon}</div>
-      <span class="demo-tag">${d.tag}</span>
+      <span class="demo-tag${showCredit ? ' demo-tag-network' : ''}">${d.tag}</span>
       <h3>${d.title}</h3>
+      ${showCredit ? `<div class="demo-credit">${d.credit}</div>` : ''}
       <p>${d.description}</p>
       <a class="demo-link" href="${d.url}" target="_blank" rel="noopener">
-        Try the live demo
+        Try it
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
       </a>
     </div>
   `).join('');
+  }
+
+  document.getElementById('demo-grid').innerHTML = renderCards(demos, false);
+  document.getElementById('network-grid').innerHTML = renderCards(networkTools, true);
 </script>
 
 </body>
