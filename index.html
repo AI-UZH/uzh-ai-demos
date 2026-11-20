@@ -206,6 +206,8 @@
     transition: transform .15s ease;
   }
 
+  .demo-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+
   .demo-card:hover .demo-link svg { transform: translate(3px, -3px); }
 
   /* More-demos note */
@@ -451,13 +453,94 @@
   const networkTools = [
     {
       tag: "From our network",
+      title: "CodyMind",
+      credit: "Shared by the UZH.ai network",
+      description: "Turns books, research papers and other source material into coherent films for different audiences.",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#0028A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m10 9 5 3-5 3z"/></svg>`
+    },
+    {
+      tag: "From our network",
       title: "PaperScope",
-      credit: "Built by a researcher in the UZH.ai network",
-      description: "A research workspace that turns literature discovery into a visual canvas — weekly curated paper digests, a citation network explorer, and a map of your reading that grows with every session.",
+      credit: "Shared by the UZH.ai network",
+      description: "Personalized weekly paper discovery, literature organization, research canvases and visual material.",
       url: "https://thepaperscope.com/",
       icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#0028A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8.2 7.2 10 15.5M15.8 7.2 14 15.5M8.3 6h7.4"/></svg>`
+    },
+    {
+      tag: "From our network",
+      title: "text2rel",
+      credit: "Shared by the UZH.ai network",
+      description: "Auditable extraction of relationships and events from unstructured historical documents.",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#0028A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M7.3 11l9.4-4M7.3 13l9.4 4"/></svg>`
+    },
+    {
+      tag: "From our network",
+      title: "AI, Counterfactuals and Research Questions",
+      credit: "Shared by the UZH.ai network",
+      description: "Demonstrated with an interactive timeline and a counterfactual scenario explorer, plus an analysis view.",
+      links: [{ label: "Timeline", url: "https://timeliner.manus.space/timeline/7560001" }, { label: "Counterfactuals", url: "https://counterfactuals.manus.space/pfade?szenario=360001" }],
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#0028A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>`
+    },
+    {
+      tag: "From our network",
+      title: "AI Assignment Library",
+      credit: "Shared by the UZH.ai network",
+      description: "A pilot collection of 40 adaptable classroom assignments that incorporate AI critically.",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#0028A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>`
+    },
+    {
+      tag: "From our network",
+      title: "askUZH",
+      credit: "Shared by the UZH.ai network",
+      description: "UZH’s student-focused AI assistant for study and university questions.",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#0028A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`
+    },
+    {
+      tag: "From our network",
+      title: "AI Teaching Assistant in OLAT",
+      credit: "Shared by the UZH.ai network",
+      description: "The UZH pilot that answers questions based on OLAT course material.",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#0028A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>`
+    },
+    {
+      tag: "From our network",
+      title: "Agentic Course Redesign",
+      credit: "Shared by the UZH.ai network",
+      description: "An open GitHub workflow in which specialist agents review course design while lecturers retain control at defined checkpoints.",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#0028A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 14h.01M15 14h.01"/></svg>`
+    },
+    {
+      tag: "From our network",
+      title: "Let AI Agents Push Back",
+      credit: "Shared by the UZH.ai network",
+      description: "Related UZH session and recording resources on using agents to challenge and redesign course materials.",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#0028A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21"/></svg>`
+    },
+    {
+      tag: "From our network",
+      title: "Cloud-powered JupyterHub for education",
+      credit: "Shared by the UZH.ai network",
+      description: "Documentation for course deployments, OLAT integration, collaboration, storage, and CPU/GPU resources.",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#0028A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 1 0 6 18.5z"/></svg>`
+    },
+    {
+      tag: "From our network",
+      title: "ScorePion",
+      credit: "Shared by the UZH.ai network",
+      description: "Validates numerical data produced by language models through interactive visual analysis.",
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="#0028A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg>`
     }
   ];
+
+  const arrow = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>`;
+
+  // A card can have a single "url" (Try it), several "links" ({label, url}), or neither.
+  function linksHtml(d) {
+    const links = d.links || (d.url ? [{ label: "Try it", url: d.url }] : []);
+    if (!links.length) return '';
+    return `<div class="demo-links">${links.map(l =>
+      `<a class="demo-link" href="${l.url}" target="_blank" rel="noopener">${l.label} ${arrow}</a>`).join('')}</div>`;
+  }
 
   function renderCards(list, showCredit) {
     return list.map(d => `
@@ -467,10 +550,7 @@
       <h3>${d.title}</h3>
       ${showCredit ? `<div class="demo-credit">${d.credit}</div>` : ''}
       <p>${d.description}</p>
-      <a class="demo-link" href="${d.url}" target="_blank" rel="noopener">
-        Try it
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
-      </a>
+      ${linksHtml(d)}
     </div>
   `).join('');
   }

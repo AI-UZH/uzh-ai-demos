@@ -15,7 +15,8 @@ To add an entry, copy an existing object in the relevant array and fill in:
 - `tag` — `"Live demo"` for `demos`, `"From our network"` for `networkTools`
 - `title` — the app's name
 - `description` — one or two sentences on what it does
-- `url` — the live (e.g. Vercel) URL
+- `url` — the live (e.g. Vercel) URL (optional; omit it for a card with no button)
+- `links` — (optional) several buttons instead of one: `[{ label: "Timeline", url: "https://..." }]`
 - `icon` — an inline SVG string (keep it simple/line-based, matching the existing icons)
 - `credit` — (networkTools only) who built it, e.g. `"Built by a researcher in the UZH.ai network"`
 
